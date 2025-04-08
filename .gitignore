@@ -1,0 +1,40 @@
+# Logs e arquivos temporários
+*.log
+*.cache
+*.bak
+*.swp
+*.tmp
+
+# Arquivos do Composer
+/vendor/
+/composer.lock
+
+# Arquivos do NPM
+/node_modules/
+/package-lock.json
+
+# Arquivos de ambiente
+.env
+
+# Arquivos de cache do PHP
+phpunit.xml
+phpunit.xml.dist
+
+# Arquivos e pastas do Docker
+/docker/mysql/
+/docker/phpmyadmin/
+/docker/nginx/
+
+# Arquivos do sistema
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Cache do Laravel (se aplicável no futuro)
+storage/*.key
+storage/logs/
+bootstrap/cache/
+
+# Cache do sistema
+.cache/
