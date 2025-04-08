@@ -1,0 +1,16 @@
+{
+    "name": "sistemanutri/sistemanutri",
+    "description": "Sistema de Cadastro e Login Simples",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Renato Angelo"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
