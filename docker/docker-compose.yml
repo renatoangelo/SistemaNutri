@@ -1,7 +1,10 @@
 version: '3.8'
+
 services:
   app:
-    image: php:8.1-fpm
+    build:
+      context: .
+      dockerfile: ./php/Dockerfile
     container_name: sistema_nutri_php
     working_dir: /var/www/html
     volumes:
@@ -24,7 +27,7 @@ services:
 
   db:
     image: mysql:5.7
-    container_name: sistema_nutri_db
+    container_name: db
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -34,7 +37,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./mysql:/var/lib/mysql
+      - db_data:/var/lib/mysql
     networks:
       - sistema-nutri-network
 
@@ -54,3 +57,6 @@ services:
 networks:
   sistema-nutri-network:
     driver: bridge
+
+volumes:
+  db_data:

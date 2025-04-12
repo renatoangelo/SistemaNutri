@@ -16,70 +16,103 @@
     --terra-fundo: #f4f1ee;
 }
 
-/* Estilo Base */
+/* Reset e base */
 body {
     font-family: Arial, sans-serif;
-    background-color: var(--terra-fundo);
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: var(--terra-fundo);
     height: 100vh;
+    display: flex;
+    flex-direction: row;
 }
 
-.container {
-    background-color: var(--terra-claro);
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+/* Menu lateral */
+.sidebar {
+    width: 250px;
+    background-color: var(--terra);
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
-    text-align: center;
-    border: 2px solid var(--bordo-escuro);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-h2 {
+.sidebar img {
+    max-width: 150px;
+    height: auto;
     margin-bottom: 20px;
+}
+
+.sidebar h2 {
     color: var(--bordo-escuro);
+    margin-bottom: 30px;
 }
 
-label {
-    display: block;
-    margin: 10px 0 5px;
-    color: var(--verde-escuro);
-}
-
-input[type="text"],
-input[type="password"] {
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
     width: 100%;
-    padding: 8px;
-    margin: 5px 0 10px;
+}
+
+.sidebar nav ul li {
+    margin: 10px 0;
+}
+
+.sidebar nav ul li a {
+    color: var(--bordo-escuro);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sidebar button {
+    background-color: var(--bordo);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Conteúdo principal */
+.main-content {
+    flex: 1;
+    padding: 40px;
+    background-color: var(--terra-claro);
+    box-sizing: border-box;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    margin-bottom: 16px;
     border: 1px solid var(--verde);
     border-radius: 4px;
     background-color: var(--terra-medio-claro);
 }
 
-button {
-    padding: 10px 20px;
+button[type="submit"] {
     background-color: var(--bordo);
-    color: #fff;
+    color: white;
     border: none;
+    padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-button:hover {
+button[type="submit"]:hover {
     background-color: var(--bordo-medio-escuro);
-}
-
-.error {
-    color: var(--bordo-claro);
-    margin-top: 10px;
-}
-
-.success {
-    color: var(--verde);
-    margin-top: 10px;
 }
