@@ -22,9 +22,16 @@ class LoginController {
     }
 
     public function logout() {
-        session_destroy();
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+    
+        session_unset(); // Remove todas as variáveis da sessão
+        session_destroy(); // Destroi a sessão
+    
         header('Location: /login');
         exit;
     }
+    
 }
 ?>

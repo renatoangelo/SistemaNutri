@@ -1,6 +1,7 @@
 <?php
 
 use App\Controllers\LoginController;
+use App\Controllers\DashboardController;
 
 // Remover a barra inicial da URL, se houver
 $url = ltrim($url, '/');
@@ -34,7 +35,8 @@ if ($url === 'login/logout') {
 
 // Rota para o dashboard
 if ($url === 'dashboard') {
-    echo "Bem-vindo ao Dashboard!";
+    $controller = new DashboardController();
+    $controller->index();
     exit;
 }
 
