@@ -62,6 +62,7 @@ class PatientController
         $data['created_by'] = $_SESSION['user_id'];
 
         $this->model->create($data);
+        $_SESSION['success_message'] = "Paciente cadastrado com sucesso!";
         header('Location: /pacientes');
         exit;
     }
@@ -70,6 +71,7 @@ class PatientController
     {
         $data = $_POST;
         $this->model->update($id, $data);
+        $_SESSION['success_message'] = "Paciente atualizado com sucesso!";
         header('Location: /pacientes');
         exit;
     }
@@ -77,6 +79,7 @@ class PatientController
     public function delete($id)
     {
         $this->model->delete($id);
+        $_SESSION['success_message'] = "Paciente EXCLUÍDO com sucesso!";
         header('Location: /pacientes');
         exit;
     }

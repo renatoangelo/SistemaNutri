@@ -80,3 +80,13 @@ table td a {
 table td a:hover {
     text-decoration: underline;
 }
+
+.success-message {
+    background-color: var(--verde-claro);
+    color: var(--verde-escuro);
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--verde);
+    border-radius: 5px;
+    text-align: center;
+}
