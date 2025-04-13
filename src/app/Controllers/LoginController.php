@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use PDO;
+
 class LoginController {
     public function index() {
         require_once __DIR__ . '/../../views/login/index.php';
@@ -11,29 +13,40 @@ class LoginController {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
-
-        $username = $_POST['username'] ?? '';
+    
+        // Conexão com banco
+        $db = require __DIR__ . '/../../config/database.php';
+    
+        $email = $_POST['username'] ?? ''; // Campo ainda chama "username" no HTML
         $password = $_POST['password'] ?? '';
         $remember = isset($_POST['remember']);
-
-        // Autenticação simples (apenas para teste)
-        if ($username === 'admin' && $password === '1234') {
-            $_SESSION['user'] = $username;
-
-            // Se marcou "lembrar de mim", salvar o cookie por 30 dias
+    
+        // Consulta segura ao banco (prevenção contra SQL Injection)
+        $stmt = $db->prepare("SELECT * FROM users WHERE email = :email LIMIT 1");
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        if ($user && password_verify($password, $user['password'])) {
+            $_SESSION['user'] = $user['name']; // Aqui você pode salvar mais dados se quiser
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['user_role'] = $user['role'];
+    
             if ($remember) {
-                setcookie('remember_username', $username, time() + (60 * 60 * 24 * 30), '/');
+                setcookie('remember_username', $email, time() + (60 * 60 * 24 * 30), '/');
             } else {
-                setcookie('remember_username', '', time() - 3600, '/'); // Remove o cookie
+                setcookie('remember_username', '', time() - 3600, '/');
             }
-            
+    
             header('Location: /dashboard');
             exit;
-            
         } else {
-            echo "Usuário ou senha inválidos!";
+            $_SESSION['login_error'] = 'E-mail ou senha inválidos!';
+            header('Location: /login');
+            exit;
         }
     }
+    
 
     public function logout() {
         if (session_status() === PHP_SESSION_NONE) {

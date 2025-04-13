@@ -17,9 +17,19 @@
 
         <div class="login-form">
             <h2>ACESSO AO SISTEMA</h2>
+
+            <?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
+            <?php if (isset($_SESSION['login_error'])): ?>
+            <div class="error">
+                <?= $_SESSION['login_error'] ?>
+            </div>
+            <?php unset($_SESSION['login_error']); ?>
+            <?php endif; ?>
+
+
             <form method="POST" action="/login/authenticate">
-                <label for="username">Usuário</label>
-                <input type="text" id="username" name="username" value="<?= isset($_COOKIE['remember_username']) ? htmlspecialchars($_COOKIE['remember_username']) : '' ?>" required>
+                <label for="email">E-mail</label>
+                <input type="text" id="email" name="username" value="<?= isset($_COOKIE['remember_username']) ? htmlspecialchars($_COOKIE['remember_username']) : '' ?>" required>
 
 
                 <label for="password">Senha</label>

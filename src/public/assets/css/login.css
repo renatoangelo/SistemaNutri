@@ -138,6 +138,19 @@ body {
     background-color: var(--bordo-medio-escuro);
 }
 
+
+.error {
+    color: var(--bordo);
+    background-color: #fcecec;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--bordo-claro);
+    border-radius: 4px;
+    text-align: center;
+}
+
+
+
 @media (max-width: 768px) {
     .login-image {
         display: none;
