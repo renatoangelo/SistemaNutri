@@ -1,0 +1,82 @@
+/* Estilo para tela de pacientes */
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: var(--terra-fundo);
+    border: 1px solid var(--terra);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.container h2 {
+    color: var(--bordo);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: var(--verde-escuro);
+    font-weight: bold;
+}
+
+form input,
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--terra);
+    border-radius: 4px;
+    background-color: var(--terra-medio-claro);
+}
+
+form button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: var(--bordo);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: var(--bordo-medio-escuro);
+}
+
+form a button {
+    background-color: var(--verde);
+}
+
+form a button:hover {
+    background-color: var(--verde-escuro);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid var(--terra);
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: var(--bordo);
+    color: white;
+}
+
+table td a {
+    color: var(--bordo);
+    text-decoration: none;
+}
+
+table td a:hover {
+    text-decoration: underline;
+}

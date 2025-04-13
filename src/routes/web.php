@@ -41,6 +41,8 @@ if ($url === 'dashboard') {
     exit;
 }
 
+///////////////////////////////// verificação de url
+
 // Verifica se a URL começa com "usuarios"
 if (str_starts_with($url, 'usuarios')) {
     $db = require __DIR__ . '/../config/database.php'; // conexão com PDO
@@ -63,6 +65,30 @@ if (str_starts_with($url, 'usuarios')) {
     }
     exit;
 }
+
+// Verifica se a URL começa com "pacientes"
+if (str_starts_with($url, 'pacientes')) {
+    $db = require __DIR__ . '/../config/database.php'; // conexão PDO
+    $controller = new App\Controllers\PatientController($db);
+
+    if ($url === 'pacientes') {
+        $controller->index();
+    } elseif ($url === 'pacientes/novo') {
+        $controller->create();
+    } elseif ($url === 'pacientes/salvar' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+        $controller->store();
+    } elseif (preg_match('/^pacientes\\/editar\\/(\\d+)$/', $url, $matches)) {
+        $controller->edit($matches[1]);
+    } elseif (preg_match('/^pacientes\\/atualizar\\/(\\d+)$/', $url, $matches) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+        $controller->update($matches[1]);
+    } elseif (preg_match('/^pacientes\\/excluir\\/(\\d+)$/', $url, $matches)) {
+        $controller->delete($matches[1]);
+    } else {
+        echo "Erro 404: Página de paciente não encontrada!";
+    }
+    exit;
+}
+
 
 
 
