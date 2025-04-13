@@ -41,7 +41,6 @@ if ($url === 'dashboard') {
     exit;
 }
 
-
 // Verifica se a URL começa com "usuarios"
 if (str_starts_with($url, 'usuarios')) {
     $db = require __DIR__ . '/../config/database.php'; // conexão com PDO
