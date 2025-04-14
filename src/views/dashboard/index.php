@@ -1,3 +1,21 @@
+<div class="page-header">
+    <h4 class="page-title">Página Inicial</h4>
+    <ul class="breadcrumbs">
+        <li class="nav-home">
+            <a href="/dashboard">
+            <i class="icon-home"></i>
+            </a>
+        </li>
+        <li class="separator">
+            <i class="icon-arrow-right"></i>
+        </li>
+        <li class="nav-item">
+            <a href="#">Página Inicial</a>
+        </li>
+    </ul>
+</div>
+<div class="page-category">
+
 <div style="display: flex; gap: 20px; flex-wrap: wrap;">
     <!-- Card de Boas-Vindas -->
     <div style="

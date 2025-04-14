@@ -31,6 +31,7 @@ class LoginController {
             $_SESSION['user'] = $user['name']; // Aqui você pode salvar mais dados se quiser
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_role'] = $user['role'];
+            $_SESSION['user_email'] = $user['email'];
     
             if ($remember) {
                 setcookie('remember_username', $email, time() + (60 * 60 * 24 * 30), '/');
