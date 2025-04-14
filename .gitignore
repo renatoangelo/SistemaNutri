@@ -38,3 +38,9 @@ bootstrap/cache/
 
 # Cache do sistema
 .cache/
+
+# SRC-II - Backup do Sistema
+src_II/
+
+#modelos do dashboard
+default-dashboard/
