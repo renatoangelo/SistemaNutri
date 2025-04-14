@@ -40,7 +40,8 @@ bootstrap/cache/
 .cache/
 
 # SRC-II - Backup do Sistema
-src_II/
+src_KaiAdmin
+src_original
 
 #modelos do dashboard
 default-dashboard/
