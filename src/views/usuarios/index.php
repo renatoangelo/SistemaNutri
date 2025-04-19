@@ -1,4 +1,12 @@
-<h2>Usuários Cadastrados</h2>
+<div class="row">
+  <div class="col-sm-6"><h3 class="mb-0">Usuários Cadastrados</h3></div>
+  <div class="col-sm-6">
+    <ol class="breadcrumb float-sm-end">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Usuários Cadastrados</li>
+    </ol>
+  </div>
+</div>
 
 <a href="/usuarios/novo" style="
     display: inline-block;

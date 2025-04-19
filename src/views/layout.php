@@ -1,45 +1,68 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SistemaNutri</title>
+<!doctype html>
+<html lang="en">
+  
+  <!--begin::Head-->
+  <?php include __DIR__ . '/partials/head.php'; ?>
+  <!--end::Head-->
 
-    <?php
-    $rotaAtual = $_SERVER['REQUEST_URI'];
-    ?>
 
-    <!-- CSS principal -->
-    <link rel="stylesheet" href="/assets/css/style.css">
+  <!--begin::Body-->
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <!--begin::App Wrapper-->
+    <div class="app-wrapper">
+      <!--begin::Header-->
+        <?php include __DIR__ . '/partials/navbar.php'; ?> 
+      <!--end::Header-->
 
-    <!-- CSS específico para pacientes -->
-    <?php if (str_starts_with($rotaAtual, '/pacientes')): ?>
-        <link rel="stylesheet" href="/assets/css/pacientes.css">
-    <?php endif; ?>
+  
+      <!--begin::Sidebar-->
+      
+        <?php include __DIR__ . '/partials/sidebar.php'; ?>
 
-    <!-- CSS específico para usuários -->
-    <?php if (str_starts_with($rotaAtual, '/usuarios')): ?>
-        <link rel="stylesheet" href="/assets/css/usuarios.css">
-    <?php endif; ?>
-</head>
-<body>
-    <div class="wrapper">
-        <div class="sidebar">
-            <img src="/assets/img/logo.png" alt="Logo SistemaNutri">
-            <h2>SistemaNutri</h2>
-            <nav>
-                <ul>
-                    <li><a href="/dashboard">Dashboard</a></li>
-                    <li><a href="/usuarios">Usuários</a></li>
-                    <li><a href="/pacientes">Pacientes</a></li>
-                </ul>
-            </nav>
-            <a href="/login/logout"><button>Sair</button></a>
+      <!--end::Sidebar-->
+
+
+      <!--begin::App Main-->
+      <main class="app-main">
+        <!--begin::App Content Header-->
+        <div class="app-content-header">
+          <!--begin::Container-->
+          
+          <div class="container-fluid">
+            
+            <!--begin::Row-->
+              <!-- AQUI ENTRA O BREADCRUMB DENTRO DE CADA VIEW - RENATOANGELO -->
+            <!--end::Row-->
+          </div>
+
+          <!--end::Container-->
         </div>
-        <div class="main-content">
-            <?= $content ?>
+        <!--end::App Content Header-->
+
+        <!--begin::App Content-->
+        <div class="app-content">
+          <!--begin::Container-->
+          <div class="container-fluid">
+              <!--begin::Row-->
+              <?=$content ?>
+              <!-- /.row (main row) -->
+          </div>
+          <!--end::Container-->
         </div>
+        <!--end::App Content-->
+      </main>
+
+      <!--end::App Main-->
+      
+      <!--begin::Footer-->
+      <?php include __DIR__ . '/partials/footer.php'; ?>
+      <!--end::Footer-->
     </div>
-</body>
+    <!--end::App Wrapper-->
+    
+    <!--begin::Script-->
+    <?php include __DIR__ . '/partials/scripts.php'; ?>
+    <!--end::Script-->
+  </body>
+  <!--end::Body-->
 </html>
