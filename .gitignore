@@ -44,4 +44,4 @@ src_KaiAdmin
 src_original
 
 #modelos do dashboard
-default-dashboard/
+@dashBoard-adminLTE
